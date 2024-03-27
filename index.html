@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script type="module" src="./scripts/Commands.js"></script>
+    <script type="module" src="./scripts/Terminal.js"></script>
+
+    <title>Thai Nguyen</title>
+</head>
+
+<body>
+    <div id="terminal">
+        <div id="output">
+            <pre>
+      ████████╗██╗  ██╗ █████╗ ██╗    ███╗   ██╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗███╗   ██╗
+      ╚══██╔══╝██║  ██║██╔══██╗██║    ████╗  ██║██╔════╝ ██║   ██║╚██╗ ██╔╝██╔════╝████╗  ██║
+         ██║   ███████║███████║██║    ██╔██╗ ██║██║  ███╗██║   ██║ ╚████╔╝ █████╗  ██╔██╗ ██║
+         ██║   ██╔══██║██╔══██║██║    ██║╚██╗██║██║   ██║██║   ██║  ╚██╔╝  ██╔══╝  ██║╚██╗██║
+         ██║   ██║  ██║██║  ██║██║    ██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████╗██║ ╚████║
+         ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═══╝
+    </pre>
+            <span>For a list of available commands, type <span id="help-text">'help'</span>.<br /></span>
+        </div>
+        <div id="input-container">
+            <span>guest@thainguyen.com:~$</span>
+            <div id="input-wrapper">
+                <input type="text" id="input" autofocus spellcheck="false" autocomplete="off" name="command"
+                    maxlength="20" />
+                <div id="cursor"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

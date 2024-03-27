@@ -1,0 +1,100 @@
+body {
+    font-family: monospace;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+p {
+    line-height: 0.5;
+}
+
+#terminal {
+    /* width: 70%; */
+    margin: 0 auto;
+    /* background-color: red; */
+    padding: 20px;
+  }
+
+  #input-container {
+    display: flex;
+  }
+
+  #input-container span {
+    color: #00ff00;
+    /* background-color: red; */
+    line-height: 1.5;
+  }
+
+  #input-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; /* Adjust spacing between span and input */
+  }
+
+  #input {
+    /* caret-color: red; */
+    caret-color: transparent;
+    font-family: monospace;
+    color: #fff;
+    border: none;
+    background-color: transparent;
+    background-color: red;
+    resize: none;
+    outline: none;
+    width: min-content;
+    font-size: 15px;
+  }
+
+  #cursor {
+    width: 8px;
+    height: 18px;
+    background: #21f838;
+    animation: blink-animation 1s step-end infinite;
+    z-index: 2;
+  }
+
+  #commandSignature {
+    color: #21f838;
+  }
+
+  @keyframes blink-animation {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  #help-text {
+    color: red;
+    text-shadow: red 2px 0 5px;
+  }
+
+  #commandOptions {
+    line-height: 1.5;
+    /* margin-left: 2em */
+    color: fuchsia;
+    text-shadow: fuchsia 2px 0 5px;
+  }
+
+  #socialOptions {
+    line-height: 1.5;
+    /* margin-left: 2em */
+    color: cyan;
+    text-shadow: cyan 2px 0 5px;
+  }
+
+  #socialLinks a {
+    text-decoration: none;
+    color: #fcefef;
+  }
+
+  #socialLinks a:hover {
+    color: black;
+    background-color: #fcefef;
+  }
+
+  #about-sentence {
+    line-height: 1.5;
+  }
