@@ -19,6 +19,7 @@ function displayHelp() {
   <span id="commandOptions" >banner</span>             <span>Display the header<br></span>
   <span id="commandOptions" >trivia</span>             <span>Get a random general knowledge trivia question<br></span>
   <span id="commandOptions" >clear</span>              <span>Clear the terminal<br></span>
+  <span id="commandOptions" >exit</span>               <span>Close the terminal site<br></span>
         </pre>
     `;
 }
@@ -48,8 +49,7 @@ function displayAbout() {
   and Vertex AI. In the past, I was a math and computer science tutor at Western, helping students
   better understand concepts taught in their classes. I'm currently working for Western's 
   Web Communications Technology team to build web pages and web apps that will help the university.
-  When I'm not in class or at work, you can find me playing pickleball, disc golf, or trying new recipes.
-  </pre>`
+  When I'm not in class or at work, you can find me playing pickleball, disc golf, or trying new recipes.</pre>`
 }
 
 function displayBanner() {
@@ -61,9 +61,14 @@ function displayBanner() {
            ██║   ██╔══██║██╔══██║██║    ██║╚██╗██║██║   ██║██║   ██║  ╚██╔╝  ██╔══╝  ██║╚██╗██║
            ██║   ██║  ██║██║  ██║██║    ██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████╗██║ ╚████║
            ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═══╝
-      </pre>                        
+      </pre>
+        <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal.<br></span>                        
         <span>For a list of available commands, type <span id="help-text">'help'</span>.<br></span>`
 }
+
+function close_window() {
+    window.close()
+  }
   
 function exec(command) {
     if (command === 'clear') {
@@ -78,12 +83,12 @@ function exec(command) {
       displayProjects();
     } else if (command === 'about') {
       displayAbout();
-    } else if (command === 'all') {
-      displayBanner();
-      displaySocial();
-      displayHelp();
-    } else {
-      displayOutput("Command not recognized.");
+    } else if (command === 'exit') {
+        close_window();
+    }
+    
+    else {
+      displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
     }
 }
 

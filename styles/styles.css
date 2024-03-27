@@ -1,10 +1,8 @@
 body {
     font-family: monospace;
-    background-color: black;
-    color: white;
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
+    background-color: #002b35;
+    color: #eee8d6;
+    font-size: 1.5em;
 }
 
 p {
@@ -12,18 +10,17 @@ p {
 }
 
 #terminal {
-    /* width: 70%; */
-    margin: 0 auto;
-    /* background-color: red; */
-    padding: 20px;
+    width: 95%;
+    background-color: #002b35;
   }
 
   #input-container {
     display: flex;
+    /* background-color: blue;as */
   }
 
   #input-container span {
-    color: #00ff00;
+    color: #39FF14;
     /* background-color: red; */
     line-height: 1.5;
   }
@@ -38,26 +35,26 @@ p {
     /* caret-color: red; */
     caret-color: transparent;
     font-family: monospace;
-    color: #fff;
+    color: #ffd;
     border: none;
     background-color: transparent;
-    background-color: red;
+    /* background-color: red; */
     resize: none;
     outline: none;
     width: min-content;
-    font-size: 15px;
+    font-size: inherit;
   }
 
   #cursor {
     width: 8px;
     height: 18px;
-    background: #21f838;
+    background: #39FF14;
     animation: blink-animation 1s step-end infinite;
     z-index: 2;
   }
 
   #commandSignature {
-    color: #21f838;
+    color: #dd2b36;
   }
 
   @keyframes blink-animation {
@@ -87,14 +84,18 @@ p {
 
   #socialLinks a {
     text-decoration: none;
-    color: #fcefef;
+    color: #ffd;
   }
 
   #socialLinks a:hover {
     color: black;
-    background-color: #fcefef;
+    background-color: #ffd;
   }
 
   #about-sentence {
     line-height: 1.5;
+  }
+
+  #output {
+    width: 50%;
   }
