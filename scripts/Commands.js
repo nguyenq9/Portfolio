@@ -42,15 +42,25 @@ function displayProjects() {
     for (let i = 0; i < info.projects.length; i++) {
         spanHTML += 
         `
-        <span id="projectName">&nbsp&nbsp${info.projects[i].name}<br></span>
-        <p id="projectDescription">${info.projects[i].description} <br></p>
+        <span id="projectName">&nbsp&nbsp${i+1}.&nbsp${info.projects[i].name}<br></span>
+
         `;
     }
     outputDiv.innerHTML += `
-    <p style="line-height:0;">
+    <p style="line-height:1.5;">
         ${spanHTML}
+        <span><br>&nbsp&nbspEnter a number to read more about that project. </span>
     </p>
     `;
+}
+
+function displayProjectInfo (num) {
+    outputDiv.innerHTML += `
+    <p style="line-height:1.5;" id="projectDescription">
+        <span id="projectName">${info.projects[num].name}<br></span>
+        ${info.projects[num].description}
+    </p>
+    `
 }
 
 
@@ -84,25 +94,33 @@ function close_window() {
     window.close()
   }
   
-function exec(command) {
+function exec(command, recent_command) {
+    // console.log (`command: ${command} | recent: ${recent_command}`);
     if (command === 'clear') {
-      outputDiv.innerHTML = "";
+        outputDiv.innerHTML = "";
     } else if (command === 'help') {
-      displayHelp();
+        displayHelp();
     } else if (command === 'banner') {
-      displayBanner();
+        displayBanner();
     } else if (command === 'social') {
-      displaySocial();
+        displaySocial();
     } else if (command === 'projects') {
-      displayProjects();
+        displayProjects();
     } else if (command === 'about') {
-      displayAbout();
+        displayAbout();
     } else if (command === 'exit') {
         close_window();
+    } else if (command === '1' && recent_command === 'projects') {
+        displayProjectInfo(0);
     }
-    
+    else if (command === '2' && recent_command === 'projects') {
+        displayProjectInfo(1);
+    }
+    else if (command === '3' && recent_command === 'projects') {
+        displayProjectInfo(2);
+    }
     else {
-      displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
+        displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
     }
 }
 

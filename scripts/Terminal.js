@@ -9,14 +9,10 @@ const input_container = document.getElementById("input-container")
 
 
 function executeCommand(command) {
-    recent_command = command
-    console.log(recent_command)
-    if (recent_command === "projects") {
-        console.log("displaying project list")
-    }
     displayOutput(`<span id="commandSignature" style="color:#39FF14;line-height:1.5;margin-right:0.090em">guest@thainguyen.com:~$</span>&nbsp${command}`);
-    exec(command)
+    exec(command, recent_command)
     input_container.scrollIntoView()
+    recent_command = command
 }
 
 inputField.addEventListener("keypress", function (event) {
