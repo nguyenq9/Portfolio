@@ -1,4 +1,4 @@
-
+import info from '../info.json' assert { type: "json" };
 
 const outputDiv = document.getElementById("output");
 const inputField = document.getElementById("input");
@@ -25,19 +25,33 @@ function displayHelp() {
 }
 
 function displaySocial() {
-    outputDiv.innerHTML += `
-    <pre style="line-height:00;"> 
-  <span id="socialOptions" >github</span>             <span id="socialLinks"><a href="https://github.com/nguyenq9" target="_blank">github/thainguyen</a><br></span>
-  <span id="socialOptions" >linkedin</span>           <span id="socialLinks"><a href="https://www.linkedin.com/in/quoc-thai-nguyen-589261223/" target="_blank">linkedin/thainguyen</a><br></span>
-  <span id="socialOptions" >instagram</span>          <span id="socialLinks"><a href="https://www.instagram.com/thainguyen.exe/" target="_blank">instagram/thainguyen</a><br></span>
-    </pre>
-  `;
+  let spanHTML = '';
+  for (let i = 0; i < info.socials.length; i++) {
+    spanHTML += `<span id="socialOptions" >&nbsp&nbsp<a href=${info.socials[i].url} target="_blank">${info.socials[i].type}</a></span>&nbsp🡽<br>`
+  }
+  outputDiv.innerHTML += `
+  <p style="line-height:0;">
+      ${spanHTML}
+  </p>
+  `; 
 }
+
 
 function displayProjects() {
-  displayOutput("Still curating... most projects are offline, on GitHub, or confidential.")
+    let spanHTML = '';
+    for (let i = 0; i < info.projects.length; i++) {
+        spanHTML += 
+        `
+        <span id="projectName">&nbsp&nbsp${info.projects[i].name}<br></span>
+        <p id="projectDescription">${info.projects[i].description} <br></p>
+        `;
+    }
+    outputDiv.innerHTML += `
+    <p style="line-height:0;">
+        ${spanHTML}
+    </p>
+    `;
 }
-
 
 
 function displayAbout() {

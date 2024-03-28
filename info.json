@@ -1,0 +1,31 @@
+{
+    "projects": [
+        {
+            "name": "Descriptive Alternative Text Generator",
+            "description": "Implemented a user-friendly interface that prioritizes accessibility, utilizing Azure's Image Analysis AI and Google's Generative AI to generate descriptive alternate text for images, and integrating seamlessly into Western Washington University's existing website using Ashlar, the university's theme and components library."
+        },
+        {
+            "name": "Data Privacy Map",
+            "description": "Collaborated with a team of four to develop an interactive data privacy map, utilizing the MERN stack. This tool provides comprehensive insights into data privacy laws across the United States and globally."
+        },
+        {
+            "name": "Deadwood",
+            "description": "Collaborated within a team of three to digitally recreate the board game Deadwood, translating intricate rules into a user-friendly JavaFX interface enriched with immersive features like sound effects and animations."
+        }
+    ],
+    "socials": [
+        {
+            "type": "github",
+            "url": "https://github.com/nguyenq9"
+        },
+        {
+            "type": "linkedin",
+            "url": "https://www.linkedin.com/in/quoc-thai-nguyen-589261223/"
+        },
+        {
+            "type": "instagram",
+            "url": "https://www.instagram.com/thainguyen.exe/"
+        }
+    ]
+
+}

@@ -82,14 +82,15 @@ p {
     text-shadow: cyan 2px 0 5px;
   }
 
-  #socialLinks a {
+  #socialOptions a {
+    color: cyan;
     text-decoration: none;
-    color: #ffd;
   }
 
-  #socialLinks a:hover {
+  #socialOptions a:hover {
     color: black;
     background-color: #ffd;
+    text-shadow: none
   }
 
   #about-sentence {
@@ -98,4 +99,15 @@ p {
 
   #output {
     width: 50%;
+  }
+
+  #projectName {
+    line-height: 1.5;
+    color: orangered;
+    text-shadow: orangered 2px 0 5px;
+  }
+
+  #projectDescription {
+    line-height: 1.5;
+    margin-left:  2em;
   }
