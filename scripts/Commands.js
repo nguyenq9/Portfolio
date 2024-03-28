@@ -27,18 +27,42 @@ function displayHelp() {
     `;
 }
 
-function displaySocial() {
-  let spanHTML = '';
-  for (let i = 0; i < info.socials.length; i++) {
-    spanHTML += `<span id="socialOptions" >&nbsp&nbsp<a href=${info.socials[i].url} target="_blank">${info.socials[i].type}</a></span>&nbsp🡽<br>`
-  }
-  outputDiv.innerHTML += `
-  <p style="line-height:0;">
-      ${spanHTML}
-  </p>
-  `; 
-}
+// function displaySocial() {
+//   let spanHTML = '';
+//   for (let i = 0; i < info.socials.length; i++) {
+//     spanHTML += `<span id="socialOptions" >&nbsp&nbsp<a href=${info.socials[i].url} target="_blank">${info.socials[i].type}</a></span>&nbsp🡽<br>`
+//   }
+//   outputDiv.innerHTML += `
+//   <p style="line-height:0;">
+//       ${spanHTML}
+//   </p>
+//   `; 
+// }
 
+let socialSectionCounter = 1;
+async function displaySocial () {
+    const bottomofoutput = document.getElementById("bottomofoutput");
+    
+    const sectionId = `social_${socialSectionCounter++}`
+    outputDiv.innerHTML += `
+    <span style="line-height:1.5;" id="${sectionId}">
+    </span>
+    `
+
+    const social_section = document.getElementById(sectionId);
+    for (let i = 0; i < info.socials.length; i++) {
+        bottomofoutput.scrollIntoView();
+        await sleep(20)
+        social_section.innerHTML += `&nbsp&nbsp🔗<span id="socialOptions" >&nbsp<a href=${info.socials[i].url} target="_blank" id="${sectionId}_${i}"></a></span><br>`
+        const social_type = document.getElementById(`${sectionId}_${i}`);
+        for (let j = 0; j < info.socials[i].type.length; j++) {
+            await sleep(20)
+            social_type.textContent += info.socials[i].type[j]
+            bottomofoutput.scrollIntoView();
+        }
+    }
+
+}
 
 function displayProjects() {
     let spanHTML = '';
@@ -74,7 +98,7 @@ let aboutSectionCounter = 1; // Initialize a counter
 async function displayAbout() {
     // Generate a unique ID for the about section
     const sectionId = `aboutme_${aboutSectionCounter++}`;
-    const test = document.getElementById("bottomofoutput");
+    const bottomofoutput = document.getElementById("bottomofoutput");
     
     outputDiv.innerHTML += `
     <span style="line-height:1.5;" id="${sectionId}">
@@ -88,7 +112,7 @@ async function displayAbout() {
         if (info.about[i] === "<") {
             aboutSentence.innerHTML += `<br>`;
             skip = true
-            test.scrollIntoView();
+            bottomofoutput.scrollIntoView();
             continue;
         }
 
@@ -100,7 +124,7 @@ async function displayAbout() {
         if (!skip) {
             aboutSentence.innerHTML += info.about[i]
         }
-        test.scrollIntoView();
+        bottomofoutput.scrollIntoView();
       }
       aboutSentence.innerHTML += `<br>`;
 }
@@ -135,7 +159,7 @@ async function exec(command, recent_command) {
     } else if (command === 'banner') {
         displayBanner();
     } else if (command === 'social') {
-        displaySocial();
+        await displaySocial();
     } else if (command === 'projects') {
         displayProjects();
     } else if (command === 'about') {

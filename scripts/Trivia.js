@@ -2,7 +2,7 @@ import trivia from '../trivia.json' with { type: "json" };
 import { sleep } from './Helper.js';
 const outputDiv = document.getElementById("output");
 const input_container = document.getElementById("input-container")
-
+const bottomofoutput = document.getElementById("bottomofoutput");
 
 let num_trivia = 0;
 async function loadingAnimation() {
@@ -11,8 +11,13 @@ async function loadingAnimation() {
   questionElement.textContent = "Fetching trivia question: [" + bar.join("") + "]";
   for (let i = 0; i < 30; i++) {
     bar[i] = "█";
-    await sleep(75);
+    if (i == Math.floor(Math.random() * 31)) {
+      await sleep(750)
+    } else {
+      await sleep(75);
+    }
     questionElement.textContent = "Fetching trivia question: [" + bar.join("") + "]";
+    bottomofoutput.scrollIntoView();
   }
   await sleep(200)
   questionElement.textContent = ""
@@ -47,7 +52,6 @@ function decodeHTMLEntities(text) {
   return decodedString;
 }
 
-
 async function displayChoices(choices) {
   outputDiv.innerHTML += `
   <p style="line-height:1.5;" id="choiceContainer${num_trivia}">
@@ -58,13 +62,14 @@ async function displayChoices(choices) {
 
   for (let i = 0; i < choices.length; i++) {
     choiceElement.innerHTML += `&nbsp&nbsp${i}.&nbsp`;
+    bottomofoutput.scrollIntoView();
+    await sleep(20)
     for (let j = 0; j < choices[i].length; j++) {
       if (choices[i][j] === "&") break;
       choiceElement.innerHTML += choices[i][j]; 
       await sleep(20);
     }
     choiceElement.innerHTML += '<br>'; // Use <br> for line breaks in HTML
-    input_container.scrollIntoView()
   }
 }
 
