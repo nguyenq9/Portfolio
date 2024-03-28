@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles/styles.css">
     <script type="module" src="./scripts/Commands.js"></script>
     <script type="module" src="./scripts/Terminal.js"></script>
+    <script type="module" src="./scripts/Trivia.js"></script>
+    <script type="module" src="./scripts/Helper.js"></script>
     <link rel="icon" type="image/x-icon" href="icon.ico">
     <title>Thai Nguyen</title>
 </head>
@@ -25,12 +27,15 @@
             <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal.<br></span>
             <span >For a list of available commands, type <span id="help-text">'help'</span>.<br /></span>
         </div>
-        <div id="input-container">
-            <span>guest@thainguyen.com:~$</span>
-            <div id="input-wrapper">
-                <input type="text" id="input" autofocus spellcheck="false" autocomplete="off" name="command"
-                    maxlength="20" />
-                <div id="cursor"></div>
+        <div id="bottomofoutput">
+            <!-- <span id="bottomofoutput">-</span> -->
+            <div id="input-container">
+                <span>guest@thainguyen.com:~$</span>
+                <div id="input-wrapper">
+                    <input type="text" id="input" autofocus spellcheck="false" autocomplete="off" name="command"
+                        maxlength="20" />
+                    <div id="cursor"></div>
+                </div>
             </div>
         </div>
     </div>

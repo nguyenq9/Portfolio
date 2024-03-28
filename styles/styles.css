@@ -1,8 +1,12 @@
+/* html {
+  scroll-behavior: smooth;
+} */
+
 body {
-    font-family: monospace;
-    background-color: #002b35;
-    color: #eee8d6;
-    font-size: 1.5em;
+  font-family: monospace;
+  background-color: #002b35;
+  color: #eee8d6;
+  font-size: 1.5em;
 }
 
 /* p {
@@ -10,100 +14,110 @@ body {
 } */
 
 #terminal {
-    width: 95%;
-    background-color: #002b35;
-  }
+  width: 95%;
+  background-color: #002b35;
+}
 
-  #input-container {
-    display: flex;
-    /* background-color: blue;as */
-  }
+#ii {
+  /* background-color: red; */
+}
+#bottomofoutput{
+  /* background-color: red; */
+  /* font-size: 10px; */
+}
 
-  #input-container span {
-    color: #39FF14;
-    /* background-color: red; */
-    line-height: 1.5;
-  }
+#input-container {
+  display: flex;
+  /* background-color: blue;as */
+  /* display: none; */
+}
 
-  #input-wrapper {
-    display: flex;
-    align-items: center;
-    margin-left: 10px; /* Adjust spacing between span and input */
-  }
+#input-container span {
+  color: #39ff14;
+  /* background-color: red; */
+  line-height: 1.5;
+}
 
-  #input {
-    /* caret-color: red; */
-    caret-color: transparent;
-    font-family: monospace;
-    color: #ffd;
-    border: none;
-    background-color: transparent;
-    /* background-color: red; */
-    resize: none;
-    outline: none;
-    width: min-content;
-    font-size: inherit;
-  }
+#input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  /* Adjust spacing between span and input */
+}
 
-  #cursor {
-    width: 8px;
-    height: 18px;
-    background: #39FF14;
-    animation: blink-animation 1s step-end infinite;
-    z-index: 2;
-  }
+#input {
+  /* caret-color: red; */
+  caret-color: transparent;
+  font-family: monospace;
+  color: #ffd;
+  border: none;
+  background-color: transparent;
+  /* background-color: red; */
+  resize: none;
+  outline: none;
+  width: min-content;
+  font-size: inherit;
+}
 
-  #commandSignature {
-    color: #dd2b36;
-  }
+#cursor {
+  width: 8px;
+  height: 18px;
+  background: #39ff14;
+  animation: blink-animation 1s step-end infinite;
+  z-index: 2;
+}
 
-  @keyframes blink-animation {
-    50% {
-      opacity: 0;
-    }
-  }
+#commandSignature {
+  color: #dd2b36;
+}
 
-  #help-text {
-    color: red;
-    text-shadow: red 2px 0 5px;
+@keyframes blink-animation {
+  50% {
+    opacity: 0;
   }
+}
 
-  #commandOptions {
-    line-height: 1.5;
-    /* margin-left: 2em */
-    color: fuchsia;
-    text-shadow: fuchsia 2px 0 5px;
-  }
+#help-text {
+  color: red;
+  text-shadow: red 2px 0 5px;
+}
 
-  #socialOptions {
-    line-height: 1.5;
-    /* margin-left: 2em */
-    color: cyan;
-    text-shadow: cyan 2px 0 5px;
-  }
+#commandOptions {
+  line-height: 1.5;
+  /* margin-left: 2em */
+  color: fuchsia;
+  text-shadow: fuchsia 2px 0 5px;
+}
 
-  #socialOptions a {
-    color: cyan;
-    text-decoration: none;
-  }
+#socialOptions {
+  line-height: 1.5;
+  /* margin-left: 2em */
+  color: cyan;
+  text-shadow: cyan 2px 0 5px;
+}
 
-  #socialOptions a:hover {
-    color: black;
-    background-color: #ffd;
-    text-shadow: none
-  }
+#socialOptions a {
+  color: cyan;
+  text-decoration: none;
+}
 
-  #about-sentence {
-    line-height: 1.5;
-  }
+#socialOptions a:hover {
+  color: black;
+  background-color: #ffd;
+  text-shadow: none;
+}
 
-  #projectName {
-    line-height: 1.5;
-    color: orangered;
-    text-shadow: orangered 2px 0 5px;
-  }
+#about-sentence {
+  line-height: 1.5;
+}
 
-  #projectDescription {
-    line-height: 1.5;
-    margin-left: 1em;
-  }
+#projectName {
+  line-height: 1.5;
+  color: orangered;
+  text-shadow: orangered 2px 0 5px;
+}
+
+#projectDescription {
+  line-height: 1.5;
+  margin-left: 1em;
+}

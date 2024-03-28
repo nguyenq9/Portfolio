@@ -1,8 +1,11 @@
-import info from '../info.json' assert { type: "json" };
+import info from '../info.json' with { type: "json" };
+import { sleep } from './Helper.js';
+import { displayTrivia } from './Trivia.js';
 
 const outputDiv = document.getElementById("output");
 const inputField = document.getElementById("input");
 const terminal = document.getElementById("terminal");
+const body = document.body
 
 function displayOutput(output) {
     outputDiv.innerHTML += `<span style="line-height:1.5;">${output}<br></span>`;
@@ -66,17 +69,43 @@ function displayProjectInfo (num) {
 }
 
 
-function displayAbout() {
-  outputDiv.innerHTML += `
-  <pre id= "about-sentence">
-  Hi my name is Thai Nguyen! 👋
-  I'm a budding web developer and Computer Science student at Western Washington University.
-  I like to build engaging websites and make cool apps using AI tools like Azure Computer Vision 
-  and Vertex AI. In the past, I was a math and computer science tutor at Western, helping students
-  better understand concepts taught in their classes. I'm currently working for Western's 
-  Web Communications Technology team to build web pages and web apps that will help the university.
-  When I'm not in class or at work, you can find me playing pickleball, disc golf, or trying new recipes.</pre>`
+let aboutSectionCounter = 1; // Initialize a counter
+
+async function displayAbout() {
+    // Generate a unique ID for the about section
+    const sectionId = `aboutme_${aboutSectionCounter++}`;
+    const test = document.getElementById("bottomofoutput");
+    
+    outputDiv.innerHTML += `
+    <span style="line-height:1.5;" id="${sectionId}">
+    </span>
+    `
+      
+    const aboutSentence = document.getElementById(sectionId);
+    let skip = false;
+    for (let i = 0; i < info.about.length; i++) {
+        await sleep(0.5);
+        if (info.about[i] === "<") {
+            aboutSentence.innerHTML += `<br>`;
+            skip = true
+            test.scrollIntoView();
+            continue;
+        }
+
+        if (info.about[i] === ">") {
+            skip = false;
+            continue;
+        }
+
+        if (!skip) {
+            aboutSentence.innerHTML += info.about[i]
+        }
+        test.scrollIntoView();
+      }
+      aboutSentence.innerHTML += `<br>`;
 }
+
+  
 
 function displayBanner() {
           outputDiv.innerHTML += `
@@ -96,8 +125,9 @@ function close_window() {
     window.close()
   }
   
-function exec(command, recent_command) {
+async function exec(command, recent_command) {
     // console.log (`command: ${command} | recent: ${recent_command}`);
+
     if (command === 'clear') {
         outputDiv.innerHTML = "";
     } else if (command === 'help') {
@@ -109,10 +139,14 @@ function exec(command, recent_command) {
     } else if (command === 'projects') {
         displayProjects();
     } else if (command === 'about') {
-        displayAbout();
+        await displayAbout();
     } else if (command === 'exit') {
         close_window();
-    } else if (command === '1' && recent_command === 'projects') {
+    } else if (command === 'trivia') {
+        await displayTrivia();
+    }
+    
+    else if (command === '1' && recent_command === 'projects') {
         displayProjectInfo(0);
     }
     else if (command === '2' && recent_command === 'projects') {

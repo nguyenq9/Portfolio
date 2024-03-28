@@ -1,26 +1,31 @@
 import { exec, displayOutput } from "./Commands.js"
-// import { recent_command } from "./global.js";
 let recent_command;
 
 const outputDiv = document.getElementById("output");
 const inputField = document.getElementById("input");
 inputField.style.width = inputField.value.length + "ch";
 const input_container = document.getElementById("input-container")
+const terminal = document.getElementById('terminal');
 
 
-function executeCommand(command) {
+async function executeCommand(command) {
     displayOutput(`<span id="commandSignature" style="color:#39FF14;line-height:1.5;margin-right:0.090em">guest@thainguyen.com:~$</span>&nbsp${command}`);
-    exec(command, recent_command)
-    input_container.scrollIntoView()
+    await exec(command, recent_command)
     recent_command = command
 }
 
-inputField.addEventListener("keypress", function (event) {
+inputField.addEventListener("keypress", async function (event) {
     if (event.key === "Enter") {
         let command = inputField.value.trim();
         if (command !== "") {
-            executeCommand(command);
+            input_container.style.setProperty("display", "none")
+            await executeCommand(command);
             inputField.value = "";
+            input_container.style.removeProperty("display")
+            input_container.scrollIntoView()
+            inputField.focus();
+            console.log(terminal.offsetHeight);
+
         }
         this.style.width = this.value.length + 'ch'
         return;
