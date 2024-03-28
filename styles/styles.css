@@ -97,10 +97,6 @@ body {
     line-height: 1.5;
   }
 
-  #output {
-    width: 50%;
-  }
-
   #projectName {
     line-height: 1.5;
     color: orangered;

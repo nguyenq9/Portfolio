@@ -61,6 +61,8 @@ function displayProjectInfo (num) {
         ${info.projects[num].description}
     </p>
     `
+    // <br>
+    // <img src="../images/datg1.png" alt="" width="50%" height="50%">
 }
 
 
