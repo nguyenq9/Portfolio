@@ -2,15 +2,28 @@
     "projects": [
         {
             "name": "Descriptive Alternative Text Generator",
-            "description": "Implemented a user-friendly interface that prioritizes accessibility, utilizing Azure's Image Analysis AI and Google's Generative AI to generate descriptive alternate text for images, and integrating seamlessly into Western Washington University's existing website using Ashlar, the university's theme and components library."
+            "description": [
+                "Utilized Azure’s Image Analysis AI and Google’s Generative AI to generate descriptive alternate text for images. ",
+                "Implemented a user-friendly interface for easy interaction with the generation system, prioritizing accessibility. ",
+                "Incorporated Western Washington University’s theme and components library, Ashlar, to provide seamlessintegration into Western’s existing website. "
+            ]
         },
         {
             "name": "Data Privacy Map",
-            "description": "Collaborated with a team of four to develop an interactive data privacy map, utilizing the MERN stack. This tool provides comprehensive insights into data privacy laws across the United States and globally."
+            "description": [
+                "Collaborated with a team of four to develop an interactive data privacy map, utilizing the MERN stack. ",
+                "Provides comprehensive insights into data privacy laws across the United States and globally. ",
+                "Integrated client feedback and suggestions in the web app. "
+            ]
         },
         {
-            "name": "Deadwood",
-            "description": "Collaborated within a team of three to digitally recreate the board game Deadwood, translating intricate rules into a user-friendly JavaFX interface enriched with immersive features like sound effects and animations."
+            "name": "Deadwood the digital board game",
+            "description": [
+                "Worked on a team of three to implement a digital version of the board game Deadwood. ",
+                "Translated the complex rules and gameplay mechanics of the physical board game into a digital experience. ",
+                "Developed a user-friendly and visually appealing interface using JavaFX, including game boards, player pieces, cards, and interactive components, providing an immersive gaming experience. ",
+                "Added sound effects and animations to enhance the gaming experience and create a dynamic atmosphere. "
+            ]
         }
     ],
     "socials": [

@@ -1,6 +1,6 @@
 import info from '../info.json' with { type: "json" };
 import { sleep } from './Helper.js';
-import { displayTrivia } from './Trivia.js';
+import { displayTrivia, trivia_answer, answer_string } from './Trivia.js';
 
 const outputDiv = document.getElementById("output");
 const inputField = document.getElementById("input");
@@ -39,15 +39,17 @@ async function displaySocial () {
     const social_section = document.getElementById(sectionId);
     for (let i = 0; i < info.socials.length; i++) {
         bottomofoutput.scrollIntoView();
-        await sleep(20)
+        await sleep(10)
         social_section.innerHTML += `&nbsp&nbsp🔗<span id="socialOptions" >&nbsp<a href=${info.socials[i].url} target="_blank" id="${sectionId}_${i}"></a></span><br>`
         const social_type = document.getElementById(`${sectionId}_${i}`);
         for (let j = 0; j < info.socials[i].type.length; j++) {
-            await sleep(20)
+            await sleep(10)
             social_type.textContent += info.socials[i].type[j]
             bottomofoutput.scrollIntoView();
         }
     }
+
+    
 
 }
 
@@ -64,18 +66,18 @@ async function displayProjects () {
     const project_section = document.getElementById(sectionId);
     for (let i = 0; i < info.projects.length; i++){
         bottomofoutput.scrollIntoView();
-        await sleep(20)
+        await sleep(10)
         project_section.innerHTML += `<span class="projectName" id="${sectionId}_${i}">&nbsp&nbsp${i+1}.&nbsp</span><br>`;
         const project = document.getElementById(`${sectionId}_${i}`)
 
         for (let j = 0; j < info.projects[i].name.length; j++) {
-            await sleep(20)
+            await sleep(10)
             project.innerHTML += info.projects[i].name[j]
             bottomofoutput.scrollIntoView();
         }
     }
     let instruction = "Enter a number to read more about that project.";
-    project_section.innerHTML += "<br>&nbsp&nbsp";
+    // project_section.innerHTML += "<br>&nbsp&nbsp";
     for (let k = 0; k < instruction.length; k++) {
         await sleep(20)
         project_section.innerHTML += instruction[k];
@@ -92,21 +94,26 @@ async function displayProjectInfo (num) {
 
     const sectionId = `project_info_${projectInfoSectionCounter++}`
     outputDiv.innerHTML += `
-    <span style="line-height:1.5;width:60%;display:block" id="${sectionId}"></span>
+    <span style="line-height:1.5;width:70%;display:block" id="${sectionId}"></span>
     `
 
     const p_info_section = document.getElementById(sectionId);
     for (let i = 0; i < info.projects[num].name.length; i++) {
         bottomofoutput.scrollIntoView();
-        await sleep(20);
+        await sleep(10);
         p_info_section.innerHTML += info.projects[num].name[i]
     }
     p_info_section.innerHTML += '<br>'
 
     for (let j = 0; j< info.projects[num].description.length; j++) {
         bottomofoutput.scrollIntoView();
-        await sleep(20);
-        p_info_section.innerHTML += info.projects[num].description[j]
+        // await sleep(0.5);
+        // p_info_section.innerHTML += info.projects[num].description[j]
+        for (let k = 0; k < info.projects[num].description[j].length; k++) {
+            await sleep(0.5);
+            p_info_section.innerHTML += info.projects[num].description[j][k]
+            bottomofoutput.scrollIntoView();
+        }
     }
     p_info_section.innerHTML += '<br>'
 }
@@ -145,6 +152,24 @@ async function displayAbout() {
         bottomofoutput.scrollIntoView();
       }
       aboutSentence.innerHTML += `<br>`;
+}
+
+async function checkAnswer (command) {
+    const bottomofoutput = document.getElementById("bottomofoutput");
+    const commandMap = {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+    }
+    console.log(trivia_answer)
+    let result_str = trivia_answer == commandMap[command] ?  "Correct!" : `Wrong! The correct answer is "${answer_string}"`;
+    for (let i = 0; i <  result_str.length; i++) {
+        outputDiv.innerHTML += result_str[i]
+        await sleep(20);
+        bottomofoutput.scrollIntoView();
+    }
+    outputDiv.innerHTML += "<br>"
 }
 
   
@@ -188,19 +213,18 @@ async function exec(command, recent_command) {
         await displayTrivia();
     }
     else if (command === '1' && recent_command === 'projects') {
-        displayProjectInfo(0);
+        await displayProjectInfo(0);
     }
     else if (command === '2' && recent_command === 'projects') {
-        displayProjectInfo(1);
+        await displayProjectInfo(1);
     }
     else if (command === '3' && recent_command === 'projects') {
-        displayProjectInfo(2);
+        await displayProjectInfo(2);
     } 
-    // else if (command === 'ls') {
-    //     await displayProjects();
-    //     await displaySocial();
-
-    // }
+    else if (recent_command === 'trivia') {
+        
+        await checkAnswer(command);
+    }
     else {
         displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
     }

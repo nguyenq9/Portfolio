@@ -52,7 +52,12 @@ function decodeHTMLEntities(text) {
   return decodedString;
 }
 
-async function displayChoices(choices) {
+export var trivia_answer;
+export var answer_string
+async function displayChoices(choices, answer) {
+  shuffleArray(choices)
+  trivia_answer = choices.findIndex(item => item === answer);
+  answer_string = answer
   outputDiv.innerHTML += `
   <p style="line-height:1.5;" id="choiceContainer${num_trivia}">
   </p>
@@ -84,33 +89,32 @@ function shuffleArray(array) {
   }
 }
 
-
 async function displayTrivia() {
   outputDiv.innerHTML += `<span id="question${num_trivia}"></span><br>`
   input_container.scrollIntoView()
   await loadingAnimation()
   let question = "";
   let choices = []
+  let answer = "";
   await fetch('https://opentdb.com/api.php?amount=1&category=9&type=multiple')
     .then((response) => response.json())
     .then((data) => {
       question = data.results[0].question;
       question = question.split("")
+      answer = decodeHTMLEntities(data.results[0].correct_answer)
       choices.push(decodeHTMLEntities(data.results[0].correct_answer))
       for (let i = 0; i < data.results[0].incorrect_answers.length; i++) {
         choices.push(decodeHTMLEntities(data.results[0].incorrect_answers[i]));
       }
-      console.log("question: ", question);
+      // console.log("question: ", question);
       console.log("choices: ", choices)
-      shuffleArray(choices)
-      console.log("shuffled choices: ", choices)
     })
     .catch((error) => {
       console.error("Error: ", error);
     });
 
   await displayQuestion(question);
-  await displayChoices(choices);
+  await displayChoices(choices, answer);
 
 
   num_trivia++;

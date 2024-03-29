@@ -24,7 +24,7 @@ inputField.addEventListener("keypress", async function (event) {
             input_container.style.removeProperty("display")
             input_container.scrollIntoView()
             inputField.focus();
-            console.log(terminal.offsetHeight);
+            // console.log(terminal.offsetHeight);
 
         }
         this.style.width = this.value.length + 'ch'
