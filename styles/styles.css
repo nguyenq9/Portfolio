@@ -16,6 +16,7 @@ body {
   margin: 0;
   padding: 0.5%;
   border-radius: 5px 5px 0px 0px;
+  -webkit-user-select: none;
 }
 
 #terminal_container {
