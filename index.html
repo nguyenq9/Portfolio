@@ -14,27 +14,29 @@
 </head>
 
 <body>
-    <div id="terminal">
-        <div id="output">
-            <pre>
+    <div id="terminal_container">
+        <p id="banner">&nbsp🔴🟡🟢</p>
+        <div id="terminal">
+            <div id="output">
+                <!-- <pre>
       ████████╗██╗  ██╗ █████╗ ██╗    ███╗   ██╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗███╗   ██╗
       ╚══██╔══╝██║  ██║██╔══██╗██║    ████╗  ██║██╔════╝ ██║   ██║╚██╗ ██╔╝██╔════╝████╗  ██║
          ██║   ███████║███████║██║    ██╔██╗ ██║██║  ███╗██║   ██║ ╚████╔╝ █████╗  ██╔██╗ ██║
          ██║   ██╔══██║██╔══██║██║    ██║╚██╗██║██║   ██║██║   ██║  ╚██╔╝  ██╔══╝  ██║╚██╗██║
          ██║   ██║  ██║██║  ██║██║    ██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████╗██║ ╚████║
          ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═══╝
-    </pre>
-            <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal.<br></span>
-            <span >For a list of available commands, type <span id="help-text">'help'</span>.<br /></span>
-        </div>
-        <div id="bottomofoutput">
-            <!-- <span id="bottomofoutput">-</span> -->
-            <div id="input-container">
-                <span>guest@myportfolio:~$</span>
-                <div id="input-wrapper">
-                    <input type="text" id="input" autofocus spellcheck="false" autocomplete="off" name="command"
-                        maxlength="20" />
-                    <div id="cursor"></div>
+    </pre> -->
+                <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal.<br></span>
+                <span>For a list of available commands, type <span id="help-text">'help'</span>.<br /></span>
+            </div>
+            <div id="bottomofoutput">
+                <div id="input-container">
+                    <span>guest@myportfolio:~$</span>
+                    <div id="input-wrapper">
+                        <input type="text" id="input" autofocus spellcheck="false" autocomplete="off" name="command"
+                            maxlength="20" />
+                        <div id="cursor"></div>
+                    </div>
                 </div>
             </div>
         </div>

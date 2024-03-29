@@ -108,7 +108,7 @@ async function displayProjectInfo (num) {
 
     const sectionId = `project_info_${projectInfoSectionCounter++}`
     outputDiv.innerHTML += `
-    <span style="line-height:1.5;width:70%;display:block" id="${sectionId}"></span>
+    <span style="line-height:1.5;display:block" id="${sectionId}"></span>
     `
 
     const p_info_section = document.getElementById(sectionId);

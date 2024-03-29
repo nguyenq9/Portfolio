@@ -17,7 +17,7 @@ inputField.addEventListener('blur', () => {
     cursor.style.display = 'none';
 });
 
-input_container.addEventListener('click', () => {
+terminal.addEventListener('click', () => {
     inputField.focus();
 })
 
