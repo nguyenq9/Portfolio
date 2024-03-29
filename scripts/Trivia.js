@@ -8,6 +8,7 @@ let num_trivia = 0;
 async function loadingAnimation() {
   let bar = "==============================".split(""); // Convert string to array
   const questionElement = document.getElementById(`question${num_trivia}`);
+  bottomofoutput.scrollIntoView();
   questionElement.textContent = "Fetching trivia question: [" + bar.join("") + "]";
   for (let i = 0; i < 30; i++) {
     bar[i] = "█";

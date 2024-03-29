@@ -11,6 +11,20 @@ function displayOutput(output) {
     outputDiv.innerHTML += `<span style="line-height:1.5;">${output}<br></span>`;
 }
 
+async function displayError() {
+    const bottomofoutput = document.getElementById("bottomofoutput");
+    let errorMessage = "Command not recognized. For a list of available commands, type "; 
+
+    for (let i = 0; i < errorMessage.length; i++) {
+        await sleep(10)
+        outputDiv.innerHTML += errorMessage[i];
+        bottomofoutput.scrollIntoView();
+    }
+
+    outputDiv.innerHTML += `<span id="help-text">'help'</span><br>`;
+    bottomofoutput.scrollIntoView();
+}
+
 function displayHelp() {
     outputDiv.innerHTML += `
         <pre style="line-height:0;"> 
@@ -162,11 +176,11 @@ async function checkAnswer (command) {
         "2": 2,
         "3": 3,
     }
-    console.log(trivia_answer)
+    console.log(trivia_answer)      
     let result_str = trivia_answer == commandMap[command] ?  "Correct!" : `Wrong! The correct answer is "${answer_string}"`;
     for (let i = 0; i <  result_str.length; i++) {
         outputDiv.innerHTML += result_str[i]
-        await sleep(20);
+        await sleep(10);
         bottomofoutput.scrollIntoView();
     }
     outputDiv.innerHTML += "<br>"
@@ -226,7 +240,8 @@ async function exec(command, recent_command) {
         await checkAnswer(command);
     }
     else {
-        displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
+        // displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
+        await displayError();
     }
 }
 

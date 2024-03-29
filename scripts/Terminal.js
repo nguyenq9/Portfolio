@@ -7,6 +7,20 @@ inputField.style.width = inputField.value.length + "ch";
 const input_container = document.getElementById("input-container")
 const terminal = document.getElementById('terminal');
 
+const cursor = document.getElementById('cursor');
+
+inputField.addEventListener('focus', () => {
+    cursor.style.display = 'inline-block';
+});
+
+inputField.addEventListener('blur', () => {
+    cursor.style.display = 'none';
+});
+
+input_container.addEventListener('click', () => {
+    inputField.focus();
+})
+
 
 async function executeCommand(command) {
     displayOutput(`<span id="commandSignature" style="color:#39FF14;line-height:1.5;margin-right:0.090em">guest@thainguyen.com:~$</span>&nbsp${command}`);
