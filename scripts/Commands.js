@@ -11,7 +11,6 @@ function displayOutput(output) {
     outputDiv.innerHTML += `<span style="line-height:1.5;">${output}<br></span>`;
 }
 
-
 function displayHelp() {
     outputDiv.innerHTML += `
         <pre style="line-height:0;"> 
@@ -26,18 +25,6 @@ function displayHelp() {
         </pre>
     `;
 }
-
-// function displaySocial() {
-//   let spanHTML = '';
-//   for (let i = 0; i < info.socials.length; i++) {
-//     spanHTML += `<span id="socialOptions" >&nbsp&nbsp<a href=${info.socials[i].url} target="_blank">${info.socials[i].type}</a></span>&nbsp🡽<br>`
-//   }
-//   outputDiv.innerHTML += `
-//   <p style="line-height:0;">
-//       ${spanHTML}
-//   </p>
-//   `; 
-// }
 
 let socialSectionCounter = 1;
 async function displaySocial () {
@@ -64,37 +51,68 @@ async function displaySocial () {
 
 }
 
-function displayProjects() {
-    let spanHTML = '';
-    for (let i = 0; i < info.projects.length; i++) {
-        spanHTML += 
-        `
-        <span id="projectName">&nbsp&nbsp${i+1}.&nbsp${info.projects[i].name}<br></span>
+let projectSectionCounter = 1;
+async function displayProjects () {
+    const bottomofoutput = document.getElementById("bottomofoutput");
 
-        `;
-    }
+    const sectionId = `projects_${projectSectionCounter++}`
     outputDiv.innerHTML += `
-    <p style="line-height:1.5;">
-        ${spanHTML}
-        <span><br>&nbsp&nbspEnter a number to read more about that project. </span>
-    </p>
-    `;
+    <span style="line-height:1.5;" id="${sectionId}">
+    </span>
+    `
+
+    const project_section = document.getElementById(sectionId);
+    for (let i = 0; i < info.projects.length; i++){
+        bottomofoutput.scrollIntoView();
+        await sleep(20)
+        project_section.innerHTML += `<span class="projectName" id="${sectionId}_${i}">&nbsp&nbsp${i+1}.&nbsp</span><br>`;
+        const project = document.getElementById(`${sectionId}_${i}`)
+
+        for (let j = 0; j < info.projects[i].name.length; j++) {
+            await sleep(20)
+            project.innerHTML += info.projects[i].name[j]
+            bottomofoutput.scrollIntoView();
+        }
+    }
+    let instruction = "Enter a number to read more about that project.";
+    project_section.innerHTML += "<br>&nbsp&nbsp";
+    for (let k = 0; k < instruction.length; k++) {
+        await sleep(20)
+        project_section.innerHTML += instruction[k];
+        bottomofoutput.scrollIntoView();
+    }
+    project_section.innerHTML += "<br>";
+    bottomofoutput.scrollIntoView();
+    await sleep(50);
 }
 
-function displayProjectInfo (num) {
+let projectInfoSectionCounter = 1;
+async function displayProjectInfo (num) {
+    const bottomofoutput = document.getElementById("bottomofoutput");
+
+    const sectionId = `project_info_${projectInfoSectionCounter++}`
     outputDiv.innerHTML += `
-    <p style="line-height:1.5;" id="projectDescription">
-        <span id="projectName">${info.projects[num].name}<br></span>
-        ${info.projects[num].description}
-    </p>
+    <span style="line-height:1.5;width:60%;display:block" id="${sectionId}"></span>
     `
-    // <br>
-    // <img src="../images/datg1.png" alt="" width="50%" height="50%">
+
+    const p_info_section = document.getElementById(sectionId);
+    for (let i = 0; i < info.projects[num].name.length; i++) {
+        bottomofoutput.scrollIntoView();
+        await sleep(20);
+        p_info_section.innerHTML += info.projects[num].name[i]
+    }
+    p_info_section.innerHTML += '<br>'
+
+    for (let j = 0; j< info.projects[num].description.length; j++) {
+        bottomofoutput.scrollIntoView();
+        await sleep(20);
+        p_info_section.innerHTML += info.projects[num].description[j]
+    }
+    p_info_section.innerHTML += '<br>'
 }
 
 
 let aboutSectionCounter = 1; // Initialize a counter
-
 async function displayAbout() {
     // Generate a unique ID for the about section
     const sectionId = `aboutme_${aboutSectionCounter++}`;
@@ -161,7 +179,7 @@ async function exec(command, recent_command) {
     } else if (command === 'social') {
         await displaySocial();
     } else if (command === 'projects') {
-        displayProjects();
+        await displayProjects();
     } else if (command === 'about') {
         await displayAbout();
     } else if (command === 'exit') {
@@ -169,7 +187,6 @@ async function exec(command, recent_command) {
     } else if (command === 'trivia') {
         await displayTrivia();
     }
-    
     else if (command === '1' && recent_command === 'projects') {
         displayProjectInfo(0);
     }
@@ -178,7 +195,12 @@ async function exec(command, recent_command) {
     }
     else if (command === '3' && recent_command === 'projects') {
         displayProjectInfo(2);
-    }
+    } 
+    // else if (command === 'ls') {
+    //     await displayProjects();
+    //     await displaySocial();
+
+    // }
     else {
         displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
     }
