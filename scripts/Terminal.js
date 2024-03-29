@@ -23,7 +23,7 @@ input_container.addEventListener('click', () => {
 
 
 async function executeCommand(command) {
-    displayOutput(`<span id="commandSignature" style="color:#39FF14;line-height:1.5;margin-right:0.090em">guest@thainguyen.com:~$</span>&nbsp${command}`);
+    displayOutput(`<span id="commandSignature" style="color:#39FF14;line-height:1.5;margin-right:0.090em">guest@myportfolio:~$</span>&nbsp${command}`);
     await exec(command, recent_command)
     recent_command = command
 }
