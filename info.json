@@ -6,6 +6,14 @@
                 "Utilized Azure’s Image Analysis AI and Google’s Generative AI to generate descriptive alternate text for images. ",
                 "Implemented a user-friendly interface for easy interaction with the generation system, prioritizing accessibility. ",
                 "Incorporated Western Washington University’s theme and components library, Ashlar, to provide seamlessintegration into Western’s existing website. "
+            ],
+            "url": "https://github.com/wwu-webtech/descriptive-alt-text-generator",
+            "images": [
+                "datg1.png",
+                "datg2.png",
+                "datg3.png",
+                "datg4.png",
+                "datg5.png"
             ]
         },
         {
@@ -14,7 +22,8 @@
                 "Collaborated with a team of four to develop an interactive data privacy map, utilizing the MERN stack. ",
                 "Provides comprehensive insights into data privacy laws across the United States and globally. ",
                 "Integrated client feedback and suggestions in the web app. "
-            ]
+            ],
+            "url": "https://github.com/nguyenq9/EpistimisLLC"
         },
         {
             "name": "Deadwood the digital board game",
@@ -23,7 +32,8 @@
                 "Translated the complex rules and gameplay mechanics of the physical board game into a digital experience. ",
                 "Developed a user-friendly and visually appealing interface using JavaFX, including game boards, player pieces, cards, and interactive components, providing an immersive gaming experience. ",
                 "Added sound effects and animations to enhance the gaming experience and create a dynamic atmosphere. "
-            ]
+            ],
+            "url": "https://github.com/nguyenq9/Deadwood-Game"
         }
     ],
     "socials": [

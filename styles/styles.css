@@ -114,6 +114,11 @@ body {
   text-shadow: red 2px 0 5px;
 }
 
+#project-text {
+  color: orangered;
+  text-shadow: orangered 2px 0 5px;
+}
+
 #commandOptions {
   line-height: 1.5;
   /* margin-left: 2em */
@@ -134,6 +139,16 @@ body {
 }
 
 #socialOptions a:hover {
+  color: black;
+  background-color: #ffd;
+  text-shadow: none;
+}
+
+#project_links{
+  text-decoration: none;
+}
+
+#project_links:hover{
   color: black;
   background-color: #ffd;
   text-shadow: none;

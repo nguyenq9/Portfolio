@@ -25,11 +25,25 @@ async function displayError() {
     bottomofoutput.scrollIntoView();
 }
 
+async function errorProjects() {
+    const bottomofoutput = document.getElementById("bottomofoutput");
+    let errorMessage = "Failed to find this project. For a list of available projects, type "; 
+
+    for (let i = 0; i < errorMessage.length; i++) {
+        await sleep(10)
+        outputDiv.innerHTML += errorMessage[i];
+        bottomofoutput.scrollIntoView();
+    }
+
+    outputDiv.innerHTML += `<span id="project-text">'projects'</span><br>`;
+    bottomofoutput.scrollIntoView();
+}
+
 function displayHelp() {
     outputDiv.innerHTML += `
         <pre style="line-height:0;"> 
   <span id="commandOptions" >about</span>              <span>Who is Thai?<br></span>
-  <span id="commandOptions" >projects</span>           <span>View coding projects<br></span>
+  <span id="commandOptions" >projects [index]</span>   <span>View coding projects<br></span>
   <span id="commandOptions" >social</span>             <span>Display social media links<br></span>
   <span id="commandOptions" >help</span>               <span>Displays available commands<br></span>
   <span id="commandOptions" >banner</span>             <span>Display the header<br></span>
@@ -54,8 +68,10 @@ async function displaySocial () {
     for (let i = 0; i < info.socials.length; i++) {
         bottomofoutput.scrollIntoView();
         await sleep(10)
-        social_section.innerHTML += `&nbsp&nbsp🔗<span id="socialOptions" >&nbsp<a href=${info.socials[i].url} target="_blank" id="${sectionId}_${i}"></a></span><br>`
+        let type = info.socials[i].type === "email" ? "inbox" : info.socials[i].type
+        social_section.innerHTML += `&nbsp&nbsp<i class="fa fa-${type}" style="color:cyan"></i><span id="socialOptions" >&nbsp<a href=${info.socials[i].url} target="_blank" id="${sectionId}_${i}"></a>&nbsp</span><br>`
         const social_type = document.getElementById(`${sectionId}_${i}`);
+        
         for (let j = 0; j < info.socials[i].type.length; j++) {
             await sleep(10)
             social_type.textContent += info.socials[i].type[j]
@@ -81,7 +97,7 @@ async function displayProjects () {
     for (let i = 0; i < info.projects.length; i++){
         bottomofoutput.scrollIntoView();
         await sleep(10)
-        project_section.innerHTML += `<span class="projectName" id="${sectionId}_${i}">&nbsp&nbsp${i+1}.&nbsp</span><br>`;
+        project_section.innerHTML += `<a href="${info.projects[i].url}" target="_blank" id="project_links"><span class="projectName" id="${sectionId}_${i}">&nbsp&nbsp${i+1}.&nbsp</span></a><br>`;
         const project = document.getElementById(`${sectionId}_${i}`)
 
         for (let j = 0; j < info.projects[i].name.length; j++) {
@@ -89,6 +105,8 @@ async function displayProjects () {
             project.innerHTML += info.projects[i].name[j]
             bottomofoutput.scrollIntoView();
         }
+        
+        
     }
     let instruction = "Enter a number to read more about that project.";
     // project_section.innerHTML += "<br>&nbsp&nbsp";
@@ -104,6 +122,12 @@ async function displayProjects () {
 
 let projectInfoSectionCounter = 1;
 async function displayProjectInfo (num) {
+    console.log(num)
+    if (info.projects.length < num || isNaN(num)) {
+        console.log("errorr")
+        await errorProjects();
+        return;
+    }
     const bottomofoutput = document.getElementById("bottomofoutput");
 
     const sectionId = `project_info_${projectInfoSectionCounter++}`
@@ -119,10 +143,15 @@ async function displayProjectInfo (num) {
     }
     p_info_section.innerHTML += '<br>'
 
+    // IMAGES SECTION
+    // for (let p = 0; p < info.projects[num].images.length; p++){
+    //     await sleep(500)
+    //     p_info_section.innerHTML += `<img src="./images/${info.projects[num].images[p]}" width="40%"><br>`
+    //     bottomofoutput.scrollIntoView();
+    // }
+
     for (let j = 0; j< info.projects[num].description.length; j++) {
         bottomofoutput.scrollIntoView();
-        // await sleep(0.5);
-        // p_info_section.innerHTML += info.projects[num].description[j]
         for (let k = 0; k < info.projects[num].description[j].length; k++) {
             await sleep(0.5);
             p_info_section.innerHTML += info.projects[num].description[j][k]
@@ -130,6 +159,9 @@ async function displayProjectInfo (num) {
         }
     }
     p_info_section.innerHTML += '<br>'
+    // console.log(info.projects[num].images)
+    bottomofoutput.scrollIntoView();
+
 }
 
 
@@ -236,8 +268,11 @@ async function exec(command, recent_command) {
         await displayProjectInfo(2);
     } 
     else if (recent_command === 'trivia') {
-        
         await checkAnswer(command);
+    }
+    else if (command.startsWith("projects")) {
+        const projectNumber = command.slice(8)
+        await displayProjectInfo(parseInt(projectNumber)-1);
     }
     else {
         // displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
