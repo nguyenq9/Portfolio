@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/wallpaper.css">
+    <link rel="stylesheet" href="styles/taskbar.css">
     <script type="module" src="./scripts/Commands.js"></script>
     <script type="module" src="./scripts/Terminal.js"></script>
     <script type="module" src="./scripts/Trivia.js"></script>
@@ -19,7 +20,7 @@
 
 <body>
     <div id="terminal_container">
-        <p id="banner">&nbsp<span id="exit-circle">✖</span></p>
+        <p id="banner"><span>&nbsp<img id="banner_terminal_icon" src="images/taskbar/terminal.png" width="20em">&nbspTerminal</span></span><span id="exit-circle">✖&nbsp</span></p>
         <div id="terminal">
             <div id="output">
                 <pre>
@@ -50,10 +51,11 @@
         </div>
     </div>
     <div id="wallpaper">
-        
+        Hello, world!
     </div>
     <div class="taskbar">
         <img id="terminal_icon" src="images/taskbar/terminal.png" width="30em">
+        <!-- <img id="chatgpt_icon" src="images/taskbar/chatgpt-icon.png" width="28em"> -->
     </div>
 </body>
 

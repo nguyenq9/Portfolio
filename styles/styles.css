@@ -18,6 +18,14 @@ body {
   border-radius: 5px 5px 0px 0px;
   -webkit-user-select: none;
   text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+#banner span {
+  display: flex;
+  align-items: center; /* Align items vertically */
 }
 
 #terminal_container {
@@ -192,21 +200,4 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: darkgray; 
-}
-
-.taskbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #7393B3;
-  /* background-color: red; */
-  box-sizing: border-box;
-  text-align: center;
-  line-height: 0;
-}
-
-.taskbar img {
-  background-color: #d2e3e9;
-  padding: 5px;
 }
