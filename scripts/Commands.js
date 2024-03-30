@@ -132,7 +132,7 @@ async function displayProjectInfo (num) {
 
     const sectionId = `project_info_${projectInfoSectionCounter++}`
     outputDiv.innerHTML += `
-    <span style="line-height:1.5;display:block" id="${sectionId}"></span>
+    <span style="line-height:1.5;display:block;width:70%" id="${sectionId}"></span>
     `
 
     const p_info_section = document.getElementById(sectionId);
@@ -222,15 +222,19 @@ async function checkAnswer (command) {
 
 function displayBanner() {
           outputDiv.innerHTML += `
-      <pre>
-        ████████╗██╗  ██╗ █████╗ ██╗    ███╗   ██╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗███╗   ██╗
-        ╚══██╔══╝██║  ██║██╔══██╗██║    ████╗  ██║██╔════╝ ██║   ██║╚██╗ ██╔╝██╔════╝████╗  ██║
-           ██║   ███████║███████║██║    ██╔██╗ ██║██║  ███╗██║   ██║ ╚████╔╝ █████╗  ██╔██╗ ██║
-           ██║   ██╔══██║██╔══██║██║    ██║╚██╗██║██║   ██║██║   ██║  ╚██╔╝  ██╔══╝  ██║╚██╗██║
-           ██║   ██║  ██║██║  ██║██║    ██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████╗██║ ╚████║
-           ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═══╝
-      </pre>
-        <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal.<br></span>                        
+<pre>
+████████╗██╗  ██╗ █████╗ ██╗    ███╗   ██╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗███╗   ██╗
+╚══██╔══╝██║  ██║██╔══██╗██║    ████╗  ██║██╔════╝ ██║   ██║╚██╗ ██╔╝██╔════╝████╗  ██║
+   ██║   ███████║███████║██║    ██╔██╗ ██║██║  ███╗██║   ██║ ╚████╔╝ █████╗  ██╔██╗ ██║
+   ██║   ██╔══██║██╔══██║██║    ██║╚██╗██║██║   ██║██║   ██║  ╚██╔╝  ██╔══╝  ██║╚██╗██║
+   ██║   ██║  ██║██║  ██║██║    ██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████╗██║ ╚████║
+   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═══╝</pre>
+        <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal.<br></span>
+        <pre style="line-height: 0;">
+<span id="commandOptions" >about</span>              <span>Who is Thai?<br></span>
+<span id="commandOptions" >projects [index]</span>   <span>View coding projects<br></span>
+<span id="commandOptions" >social</span>             <span>Display social media links<br></span>
+        </pre>                        
         <span>For a list of available commands, type <span id="help-text">'help'</span>.<br></span>`
 }
 
