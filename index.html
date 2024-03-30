@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/wallpaper.css">
     <link rel="stylesheet" href="styles/taskbar.css">
+    <link rel="stylesheet" href="styles/chat.css">
     <script type="module" src="./scripts/Commands.js"></script>
     <script type="module" src="./scripts/Terminal.js"></script>
     <script type="module" src="./scripts/Trivia.js"></script>
@@ -53,9 +54,19 @@
     <div id="wallpaper">
         Hello, world!
     </div>
+    <div id="chat-container">
+        <p id="banner"><span>&nbsp<img id="banner_chatgpt_icon" src="images/taskbar/chatgpt-icon.png" width="20em">&nbspAI Chatbot</span></span><span id="exit-circle">✖&nbsp</span></p>
+        <div class="chat-message user-message">
+            User: Hello, how can I help you?
+        </div>
+        <div class="chat-message bot-message">
+            Bot: Welcome to our website! How can I assist you today?
+        </div>
+        <!-- Add more chat messages here -->
+    </div>
     <div class="taskbar">
         <img id="terminal_icon" src="images/taskbar/terminal.png" width="30em">
-        <!-- <img id="chatgpt_icon" src="images/taskbar/chatgpt-icon.png" width="28em"> -->
+        <img id="chatgpt_icon" src="images/taskbar/chatgpt-icon.png" width="28em" >
     </div>
 </body>
 

@@ -2,6 +2,7 @@ import info from '../info.json' with { type: "json" };
 import { sleep } from './Helper.js';
 import { displayTrivia, trivia_answer, answer_string } from './Trivia.js';
 
+
 const outputDiv = document.getElementById("output");
 const inputField = document.getElementById("input");
 const terminal = document.getElementById("terminal");
@@ -229,7 +230,7 @@ function displayBanner() {
    ██║   ██╔══██║██╔══██║██║    ██║╚██╗██║██║   ██║██║   ██║  ╚██╔╝  ██╔══╝  ██║╚██╗██║
    ██║   ██║  ██║██║  ██║██║    ██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████╗██║ ╚████║
    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═══╝</pre>
-        <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal.<br></span>
+        <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal. Here are some useful commands:<br></span>
         <pre style="line-height: 0;">
 <span id="commandOptions" >about</span>              <span>Who is Thai?<br></span>
 <span id="commandOptions" >projects [index]</span>   <span>View coding projects<br></span>

@@ -26,3 +26,7 @@ body {
 	}
 }
 
+.taskbar img {
+    margin: 0; /* remove any margin */
+    padding: 0; /* remove any padding */
+}
