@@ -13,6 +13,7 @@
     <script type="module" src="./scripts/Trivia.js"></script>
     <script type="module" src="./scripts/Helper.js"></script>
     <script type="module" src="./scripts/Taskbar.js"></script>
+    <script type="module" src="./scripts/Chat.js"></script>
     <link rel="icon" type="image/x-icon" href="icon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -55,14 +56,14 @@
         Hello, world!
     </div>
     <div id="chat-container">
-        <p id="banner"><span>&nbsp<img id="banner_chatgpt_icon" src="images/taskbar/chatgpt-icon.png" width="20em">&nbspAI Chatbot</span></span><span id="exit-circle">✖&nbsp</span></p>
-        <div class="chat-message user-message">
-            User: Hello, how can I help you?
+        <p id="banner"><span>&nbsp<img id="banner_chatgpt_icon" src="images/taskbar/chatgpt-icon.png" width="20em">&nbspAI Chatbot</span></span><span id="exit-symbol">✖&nbsp</span></p>
+        <div id="message_container">
         </div>
-        <div class="chat-message bot-message">
-            Bot: Welcome to our website! How can I assist you today?
+        <div class="chat_input_wrapper">
+            <!-- <input type="text" id="chat_input" autofocus spellcheck="false" autocomplete="off" name="chat" placeholder="Chat message" size="50"/> -->
+            <span id="chat_input" contenteditable="true"></span>
+            <img src="images/taskbar/send-icon.png" alt="Send Button"></img>
         </div>
-        <!-- Add more chat messages here -->
     </div>
     <div class="taskbar">
         <img id="terminal_icon" src="images/taskbar/terminal.png" width="30em">

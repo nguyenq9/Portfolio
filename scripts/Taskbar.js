@@ -1,4 +1,4 @@
-const exit = document.getElementById("exit-circle");
+const terminal_exit = document.getElementById("exit-circle");
 const terminal_container = document.getElementById("terminal_container");
 const terminal_icon = document.getElementById("terminal_icon");
 const outputDiv = document.getElementById("output");
@@ -6,6 +6,7 @@ const wallpaper = document.getElementById("wallpaper");
 const inputField = document.getElementById("input");
 const chatgpt_icon = document.getElementById("chatgpt_icon");
 const chat_container = document.getElementById("chat-container");
+const chat_exit = document.getElementById("exit-symbol");
 
 function displayBanner() {
     outputDiv.innerHTML += `
@@ -57,10 +58,16 @@ function closeAllContainers () {
 }
 
 
-exit.addEventListener( "click", function() { 
+terminal_exit.addEventListener( "click", function() { 
   closeTerminalContainer();
   wallpaper.style.setProperty("display", "flex")
   current_icon = "none"
+})
+
+chat_exit.addEventListener("click", () => {
+  closeChatContainer();
+  wallpaper.style.setProperty("display", "flex")
+  current_icon = 'none'
 })
 
 terminal_icon.addEventListener( "click", function() { 
