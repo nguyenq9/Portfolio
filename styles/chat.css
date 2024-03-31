@@ -39,6 +39,7 @@
     max-width: 70%;
 }
 
+
 /* CSS styles for the bot's messages */
 .bot-message {
     background-color: #3a3939;
@@ -60,7 +61,7 @@
 #chat_input {
     font-family: monospace;
     /* color: #ffd; */
-    font-size: inherit;
+    font-size: 0.85em;
     background-color: #3c4043;
     display: inline-block;
     border: solid 1px black;
@@ -72,10 +73,7 @@
 }
 
 .chat_input_wrapper img{
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.1em;
+    height: 1.1em;
     padding: 0.5em;
-    /* background-color: white;
-    border-radius: 15px; */
-
 }

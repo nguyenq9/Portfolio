@@ -46,9 +46,11 @@ function openTerminalContainer () {
 function openChatContainer () {
   chat_container.style.setProperty("display", 'flex')
   chatgpt_icon.style.setProperty("background-color", "#7393B3") // #7393B3
+  document.getElementById("chat_input").focus();
 }
 
 function closeChatContainer () {
+  document.getElementById("message_container").innerHTML = "";
   chatgpt_icon.style.removeProperty("background-color")
   chat_container.style.setProperty("display", 'none')
 }

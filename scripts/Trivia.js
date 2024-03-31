@@ -112,6 +112,7 @@ async function displayTrivia() {
     })
     .catch((error) => {
       console.error("Error: ", error);
+      return;
     });
 
   await displayQuestion(question);
