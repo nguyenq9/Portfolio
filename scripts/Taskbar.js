@@ -65,13 +65,27 @@ function closeAllContainers () {
 async function openWallpaper() {
   wallpaper.style.setProperty("display", "flex")
   let name = "Thai nGuyEn";
+  let instruction = "use the taskbar below to navigate.";
 
   wallpaper.innerHTML = ""
+
   await sleep(200);
   for (let i = 0; i < name.length; i++) {
     wallpaper.innerHTML += name[i];
     if (name[i] !== " ") await sleep(150);
   }
+  wallpaper.innerHTML += `
+  <span id="wallpaper_instruction">
+  </span> 
+  `;
+
+  const wallpaper_instruction = document.getElementById("wallpaper_instruction");
+  for (let i = 0; i < instruction.length; i++) {
+    wallpaper_instruction.innerHTML += instruction[i];
+    if (name[i] !== " ") await sleep(30);
+  }
+
+
 }
 
 terminal_exit.addEventListener( "click", function() { 

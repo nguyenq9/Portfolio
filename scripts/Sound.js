@@ -5,7 +5,6 @@ let sound_toggled = true;
 audio.volume = 0.3;
 
 top_button.addEventListener('click', function() {
-    const audio = document.querySelector('audio'); // Get the audio element
     if (!sound_toggled) {
         sound_icon.src = "images/sound/sound-on.png";
         console.log('sound is on');
