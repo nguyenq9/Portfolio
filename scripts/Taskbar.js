@@ -1,3 +1,5 @@
+import { sleep } from "./Helper.js";
+
 const terminal_exit = document.getElementById("exit-circle");
 const terminal_container = document.getElementById("terminal_container");
 const terminal_icon = document.getElementById("terminal_icon");
@@ -59,16 +61,27 @@ function closeAllContainers () {
   closeTerminalContainer();
 }
 
+async function openWallpaper() {
+  let name = "Thai nGuyEn";
+
+  await sleep(200);
+  for (let i = 0; i < name.length; i++) {
+    wallpaper.innerHTML += name[i];
+    if (name[i] !== " ") await sleep(150);
+  }
+}
 
 terminal_exit.addEventListener( "click", function() { 
   closeTerminalContainer();
   wallpaper.style.setProperty("display", "flex")
+  openWallpaper();
   current_icon = "none"
 })
 
 chat_exit.addEventListener("click", () => {
   closeChatContainer();
   wallpaper.style.setProperty("display", "flex")
+  openWallpaper();
   current_icon = 'none'
 })
 
@@ -77,6 +90,7 @@ terminal_icon.addEventListener( "click", function() {
     console.log("terminal icon clicked")
     closeChatContainer();
     wallpaper.style.setProperty("display", "none")
+    wallpaper.innerHTML = ""
     openTerminalContainer();
     current_icon = "terminal"
   }
@@ -87,6 +101,7 @@ chatgpt_icon.addEventListener( "click", function() {
     console.log("chatgpt icon clicked")
     closeTerminalContainer();
     wallpaper.style.setProperty("display", "none")
+    wallpaper.innerHTML = ""
     openChatContainer();
     current_icon = "chatgpt"
   }

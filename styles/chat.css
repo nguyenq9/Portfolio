@@ -1,7 +1,7 @@
 #chat-container {
-    width: 90%;
-    height: 79vh;
-    border: 1px solid #ccc;
+    width: 60%;
+    height: 85vh;
+    border: thick solid #ccc;
     overflow-y: auto; 
     background-color: #191a1d;
     margin: 0 auto;
@@ -52,6 +52,7 @@
 .chat_input_wrapper {
     margin: 0 auto;
     margin-top: auto;
+    margin-bottom: 1em;
     width: 70%;
     display: flex;
     justify-content: space-between;

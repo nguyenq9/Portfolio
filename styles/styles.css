@@ -29,6 +29,7 @@ body {
 }
 
 #terminal_container {
+  /* display: none; */
   width: 80%;
   margin: 0 auto;
   border-style: solid;
