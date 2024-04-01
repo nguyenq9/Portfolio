@@ -14,6 +14,7 @@
     <script type="module" src="./scripts/Helper.js"></script>
     <script type="module" src="./scripts/Taskbar.js"></script>
     <script type="module" src="./scripts/Chat.js"></script>
+    <script type="module" src="./scripts/Sound.js"></script>
     <link rel="icon" type="image/x-icon" href="icon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -21,24 +22,16 @@
 </head>
 
 <body>
+    <audio autoplay hidden loop>
+        <source src="audio/After_Hours.mp3" type="audio/mpeg">
+    </audio>
+    <div id="top-right-button">
+        <button id="top_button"><img id="sound_icon" src="images/sound/sound-on.png"></img></button>
+    </div>
     <div id="terminal_container">
-        <p id="banner"><span>&nbsp<img id="banner_terminal_icon" src="images/taskbar/terminal.png" width="20em">&nbspTerminal</span></span><span id="exit-circle">✖&nbsp</span></p>
+        <p id="banner"><span>&nbsp<img id="banner_terminal_icon" src="images/taskbar/terminal-white.png" width="20em">&nbspTerminal</span></span><span id="exit-circle">✖&nbsp</span></p>
         <div id="terminal">
             <div id="output">
-                <pre>
-████████╗██╗  ██╗ █████╗ ██╗    ███╗   ██╗ ██████╗ ██╗   ██╗██╗   ██╗███████╗███╗   ██╗
-╚══██╔══╝██║  ██║██╔══██╗██║    ████╗  ██║██╔════╝ ██║   ██║╚██╗ ██╔╝██╔════╝████╗  ██║
-   ██║   ███████║███████║██║    ██╔██╗ ██║██║  ███╗██║   ██║ ╚████╔╝ █████╗  ██╔██╗ ██║
-   ██║   ██╔══██║██╔══██║██║    ██║╚██╗██║██║   ██║██║   ██║  ╚██╔╝  ██╔══╝  ██║╚██╗██║
-   ██║   ██║  ██║██║  ██║██║    ██║ ╚████║╚██████╔╝╚██████╔╝   ██║   ███████╗██║ ╚████║
-   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝    ╚═╝  ╚═══╝ ╚═════╝  ╚═════╝    ╚═╝   ╚══════╝╚═╝  ╚═══╝</pre>
-                <span style="line-height: 1.5;">Welcome to my interactive web portfolio/terminal. Here are some useful commands:</span>
-                <pre style="line-height: 0;">
-<span id="commandOptions" >about</span>              <span>Who is Thai?<br></span>
-<span id="commandOptions" >projects [index]</span>   <span>View coding projects<br></span>
-<span id="commandOptions" >social</span>             <span>Display social media links<br></span>
-                </pre>
-                <span>For a list of available commands, type <span id="help-text">'help'</span>.<br /></span>
             </div>
             <div id="bottomofoutput">
                 <div id="input-container">
@@ -59,13 +52,12 @@
         <div id="message_container">
         </div>
         <div class="chat_input_wrapper">
-            <!-- <input type="text" id="chat_input" autofocus spellcheck="false" autocomplete="off" name="chat" placeholder="Chat message" size="50"/> -->
             <span id="chat_input" contenteditable="true"></span>
             <img id="send-button" src="images/taskbar/send-icon.png" alt="Send Button"></img>
         </div>
     </div>
     <div class="taskbar">
-        <img id="terminal_icon" src="images/taskbar/terminal.png" width="30em">
+        <img id="terminal_icon" src="images/taskbar/terminal-white.png" width="30em">
         <img id="chatgpt_icon" src="images/taskbar/chat-icon-red.png" width="29em" >
     </div>
 </body>

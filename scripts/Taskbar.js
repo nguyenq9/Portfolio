@@ -28,9 +28,9 @@ function displayBanner() {
   <span>For a list of available commands, type <span id="help-text">'help'</span>.<br></span>`
 }
 
-let current_icon = "terminal";
+let current_icon = "none";
 
-terminal_icon.style.setProperty("background-color","#7393B3")
+// terminal_icon.style.setProperty("background-color","#7393B3")
 
 export function closeTerminalContainer () {
   terminal_container.style.setProperty("display", "none")
@@ -39,7 +39,8 @@ export function closeTerminalContainer () {
 }
 
 function openTerminalContainer () {
-  terminal_container.style.removeProperty("display")
+  // terminal_container.style.removeProperty("display")
+  terminal_container.style.setProperty("display", "block")
   terminal_icon.style.setProperty("background-color","#7393B3")
   displayBanner();
   inputField.focus();
@@ -62,8 +63,10 @@ function closeAllContainers () {
 }
 
 async function openWallpaper() {
+  wallpaper.style.setProperty("display", "flex")
   let name = "Thai nGuyEn";
 
+  wallpaper.innerHTML = ""
   await sleep(200);
   for (let i = 0; i < name.length; i++) {
     wallpaper.innerHTML += name[i];
@@ -73,14 +76,12 @@ async function openWallpaper() {
 
 terminal_exit.addEventListener( "click", function() { 
   closeTerminalContainer();
-  wallpaper.style.setProperty("display", "flex")
   openWallpaper();
   current_icon = "none"
 })
 
 chat_exit.addEventListener("click", () => {
   closeChatContainer();
-  wallpaper.style.setProperty("display", "flex")
   openWallpaper();
   current_icon = 'none'
 })
@@ -106,3 +107,9 @@ chatgpt_icon.addEventListener( "click", function() {
     current_icon = "chatgpt"
   }
 })
+
+// on start close the terminal
+// closeTerminalContainer();
+// wallpaper.style.setProperty("display", "flex")
+openWallpaper();
+// current_icon = "none"

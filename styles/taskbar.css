@@ -1,22 +1,49 @@
 .taskbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    /* background-color: #7393B3; */
-    background-color: lightgrey;
-    box-sizing: border-box;
-    text-align: center;
-    line-height: 0;
-    font-size: 5px;
-  }
-  
-  .taskbar img {
-    /* background-color: #7393B3; */
-    padding: 5px;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: #7393B3; */
+  background-color: lightgrey;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 0;
+  font-size: 5px;
+}
 
-  .taskbar img:hover {
-    background-color: #7393B3;
-    /* background-color: red; */
-  }
+.taskbar img {
+  /* background-color: #7393B3; */
+  padding: 5px;
+}
+
+.taskbar img:hover {
+  background-color: #7393b3;
+  /* background-color: red; */
+}
+
+#top-right-button {
+  position: fixed;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+}
+
+#top_button {
+  background-color: lightgrey;
+  border: none;
+  color: black;
+
+  width: 3em; /* Adjust the width */
+  height: 3em; /* Adjust the height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50%; /* Make it a circle */
+}
+
+#top_button img {
+  max-width: 80%; /* Adjust the size of the image */
+  max-height: 80%; /* Adjust the size of the image */
+}

@@ -10,7 +10,7 @@ async function botResponse () {
     await sleep(1000)
     message_container.innerHTML += `
     <div class="chat-message bot-message" id="bot_chat_message_${bot_message_counter}">
-        Bot: message ${bot_message_counter} hello there
+        🚧🚧🚧 Bot is under construction 🚧🚧🚧
     </div>
     `;
     latest = document.getElementById(`bot_chat_message_${bot_message_counter}`)
