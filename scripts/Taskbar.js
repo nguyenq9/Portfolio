@@ -38,15 +38,18 @@ export function closeTerminalContainer () {
   outputDiv.innerHTML = ""
 }
 
-function openTerminalContainer () {
-  // terminal_container.style.removeProperty("display")
-  terminal_container.style.setProperty("display", "block")
-  terminal_icon.style.setProperty("background-color","#7393B3")
+function openTerminalContainer() {
+  terminal_container.classList.add("fade-in-scale");
+  terminal_container.style.setProperty("display", "block");
+  terminal_icon.style.setProperty("background-color", "#7393B3");
   displayBanner();
   inputField.focus();
 }
 
+
+
 function openChatContainer () {
+  chat_container.classList.add("fade-in-scale");
   chat_container.style.setProperty("display", 'flex')
   chatgpt_icon.style.setProperty("background-color", "#7393B3") // #7393B3
   document.getElementById("chat_input").focus();
