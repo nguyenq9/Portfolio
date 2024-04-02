@@ -65,7 +65,7 @@ function closeAllContainers () {
 async function openWallpaper() {
   wallpaper.style.setProperty("display", "flex")
   let name = "Thai nGuyEn";
-  let instruction = "use the taskbar below to navigate.";
+  let instruction = "use the taskbar below to navigate";
 
   wallpaper.innerHTML = ""
 

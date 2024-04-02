@@ -1,4 +1,4 @@
-import trivia from '../trivia.json' with { type: "json" };
+// import trivia from '../trivia.json'
 import { sleep } from './Helper.js';
 const outputDiv = document.getElementById("output");
 const input_container = document.getElementById("input-container")
