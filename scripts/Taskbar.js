@@ -22,8 +22,10 @@ function displayBanner() {
   <span style="line-height: 2;">Welcome to my interactive web portfolio/terminal. Here are some useful commands:<br></span>
   <pre style="line-height: 0;">
 <span id="commandOptions" >about</span>              <span>Who is Thai?<br></span>
+<span id="commandOptions" >exp [index]</span>        <span>View previous work experience<br></span>
 <span id="commandOptions" >projects [index]</span>   <span>View coding projects<br></span>
-<span id="commandOptions" >social</span>             <span>Display social media links<br></span>
+<span id="commandOptions" >socials</span>             <span>Display social media links<br></span>
+<span id="commandOptions" >skills</span>             <span>Display my various skills<br></span>
   </pre>                        
   <span>For a list of available commands, type <span id="help-text">'help'</span>.<br></span>`
 }

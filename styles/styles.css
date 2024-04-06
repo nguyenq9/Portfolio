@@ -124,6 +124,11 @@ body {
   text-shadow: red 2px 0 5px;
 }
 
+#expNum {
+  color: mediumaquamarine;
+  text-shadow: mediumaquamarine 2px 0 5px;
+}
+
 #project-text {
   color: orangered;
   text-shadow: orangered 2px 0 5px;

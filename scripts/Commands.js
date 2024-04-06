@@ -40,12 +40,28 @@ async function errorProjects() {
     bottomofoutput.scrollIntoView();
 }
 
+async function errorExp() {
+    const bottomofoutput = document.getElementById("bottomofoutput");
+    let errorMessage = "Failed to find this job. For a list of available experiences, type "; 
+
+    for (let i = 0; i < errorMessage.length; i++) {
+        await sleep(10)
+        outputDiv.innerHTML += errorMessage[i];
+        bottomofoutput.scrollIntoView();
+    }
+
+    outputDiv.innerHTML += `<span id="expNum">'exp'</span><br>`;
+    bottomofoutput.scrollIntoView();
+}
+
 function displayHelp() {
     outputDiv.innerHTML += `
         <pre style="line-height:0;"> 
   <span id="commandOptions" >about</span>              <span>Who is Thai?<br></span>
+  <span id="commandOptions" >exp [index]</span>        <span>View previous work experience<br></span>
   <span id="commandOptions" >projects [index]</span>   <span>View coding projects<br></span>
-  <span id="commandOptions" >social</span>             <span>Display social media links<br></span>
+  <span id="commandOptions" >socials</span>            <span>Display social media links<br></span>
+  <span id="commandOptions" >skills</span>             <span>Display my various skills<br></span>
   <span id="commandOptions" >help</span>               <span>Displays available commands<br></span>
   <span id="commandOptions" >banner</span>             <span>Display the header<br></span>
   <span id="commandOptions" >trivia</span>             <span>Get a random general knowledge trivia question<br></span>
@@ -165,7 +181,6 @@ async function displayProjectInfo (num) {
 
 }
 
-
 let aboutSectionCounter = 1; // Initialize a counter
 async function displayAbout() {
     // Generate a unique ID for the about section
@@ -219,7 +234,143 @@ async function checkAnswer (command) {
     outputDiv.innerHTML += "<br>"
 }
 
-  
+let skillsSectionCounter = 1;
+async function displaySkills () {
+    // Generate a unique ID for the about section
+    const sectionId = `skills_${skillsSectionCounter++}`;
+    const bottomofoutput = document.getElementById("bottomofoutput");
+
+    outputDiv.innerHTML += `
+    <span style="line-height:1.5;" id="${sectionId}">
+    </span>
+    `
+    
+    const skillsSection = document.getElementById(sectionId);
+
+    let header = "Languages: ";
+    for (let i = 0; i < header.length; i++) {
+        await sleep(5);
+        skillsSection.innerHTML += header[i];   
+        bottomofoutput.scrollIntoView();
+    }
+    skillsSection.innerHTML += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
+
+    for (let i = 0; i < info.skills.languages.length; i++) {
+        for (let j = 0; j < info.skills.languages[i].length; j++) {
+            await sleep(5)
+            skillsSection.innerHTML += info.skills.languages[i][j];
+        }
+        await sleep(5);
+        if (i != info.skills.languages.length-1) skillsSection.innerHTML += ", ";
+        bottomofoutput.scrollIntoView();
+    }
+    skillsSection.innerHTML += `<br>`;
+    bottomofoutput.scrollIntoView();
+
+    header = "Frameworks: ";
+    for (let i = 0; i < header.length; i++) {
+        await sleep(5);
+        skillsSection.innerHTML += header[i];   
+        bottomofoutput.scrollIntoView();
+    }
+    skillsSection.innerHTML += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
+
+    for (let i = 0; i < info.skills.frameworks.length; i++) {
+        for (let j = 0; j < info.skills.frameworks[i].length; j++) {
+            await sleep(5)
+            skillsSection.innerHTML += info.skills.frameworks[i][j];
+        }
+        await sleep(5)
+        if (i != info.skills.frameworks.length-1) skillsSection.innerHTML += ", ";
+        bottomofoutput.scrollIntoView();
+    }
+    skillsSection.innerHTML += `<br>`;
+    bottomofoutput.scrollIntoView();
+
+    header = "Developer Tools: ";
+    for (let i = 0; i < header.length; i++) {
+        await sleep(5);
+        skillsSection.innerHTML += header[i];   
+        bottomofoutput.scrollIntoView();
+    }
+    skillsSection.innerHTML += "&nbsp&nbsp"
+
+    for (let i = 0; i < info.skills.developer.length; i++) {
+        for (let j = 0; j < info.skills.developer[i].length; j++) {
+            await sleep(5)
+            skillsSection.innerHTML += info.skills.developer[i][j];
+        }
+        await sleep(5)
+        if (i != info.skills.developer.length-1) skillsSection.innerHTML += ", ";
+        bottomofoutput.scrollIntoView();
+    }
+    skillsSection.innerHTML += `<br>`;
+    bottomofoutput.scrollIntoView();
+
+    header = "Interests: ";
+    for (let i = 0; i < header.length; i++) {
+        await sleep(10);
+        skillsSection.innerHTML += header[i];   
+        bottomofoutput.scrollIntoView();
+    }
+    skillsSection.innerHTML += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
+
+    for (let i = 0; i < info.skills.interests.length; i++) {
+        for (let j = 0; j < info.skills.interests[i].length; j++) {
+            await sleep(5)
+            skillsSection.innerHTML += info.skills.interests[i][j];
+        }
+        await sleep(5)
+        if (i != info.skills.interests.length-1) skillsSection.innerHTML += ", ";
+        bottomofoutput.scrollIntoView();
+    }
+    skillsSection.innerHTML += `<br>`;
+    bottomofoutput.scrollIntoView();
+    
+}
+
+async function expHelper(sectionId, title, start, end) {
+    const bottomofoutput = document.getElementById("bottomofoutput");
+    const expSection = document.getElementById(sectionId);
+
+
+    for (let i = 0; i < title.length; i++) {
+        await sleep(10)
+        expSection.innerHTML += title[i]; 
+        bottomofoutput.scrollIntoView();
+    }
+}
+
+let expSectionCounter = 1;
+async function displayExp () {
+    // Generate a unique ID for the experience section
+    const sectionId = `aboutme_${expSectionCounter++}`;
+    const bottomofoutput = document.getElementById("bottomofoutput");
+
+    outputDiv.innerHTML += `
+    <span style="line-height:1.5;" id="${sectionId}">
+    </span>
+    `
+    let experience = info.experience
+    const expSection = document.getElementById(sectionId);
+    for (let i = 0; i < experience.length; i++) {
+        expSection.innerHTML += `<span id="expNum">&nbsp&nbsp${i+1}. </span>`;
+        bottomofoutput.scrollIntoView();
+        await expHelper(sectionId, experience[i].title, experience[i].date.start, experience[i].date.end);
+        expSection.innerHTML += `<br>`
+        bottomofoutput.scrollIntoView();
+    }
+}
+
+let expInfoSectionCounter = 1;
+async function displayExpInfo (num) {
+    console.log(num)
+    if (info.experience.length < num || isNaN(num)) {
+        console.log("error")
+        await errorExp();
+        return;
+    }
+}
 
 function displayBanner() {
           outputDiv.innerHTML += `
@@ -241,18 +392,16 @@ function displayBanner() {
 
 function close_window() {
     window.close()
-  }
+}
   
 async function exec(command, recent_command) {
-    // console.log (`command: ${command} | recent: ${recent_command}`);
-
     if (command === 'clear') {
         outputDiv.innerHTML = "";
     } else if (command === 'help') {
         displayHelp();
     } else if (command === 'banner') {
         displayBanner();
-    } else if (command === 'social') {
+    } else if (command === 'socials') {
         await displaySocial();
     } else if (command === 'projects') {
         await displayProjects();
@@ -262,6 +411,12 @@ async function exec(command, recent_command) {
         close_window();
     } else if (command === 'trivia') {
         await displayTrivia();
+    } 
+    else if (command === "skills") {
+        await displaySkills();
+    }
+    else if (command === "exp") {
+        await displayExp();
     }
     else if (command === '1' && recent_command === 'projects') {
         await displayProjectInfo(0);
@@ -279,8 +434,11 @@ async function exec(command, recent_command) {
         const projectNumber = command.slice(8)
         await displayProjectInfo(parseInt(projectNumber)-1);
     }
+    else if (command.startsWith("exp")) {
+        const expNumber = command.slice(3)
+        await displayExpInfo(parseInt(expNumber)-1);
+    }
     else {
-        // displayOutput(`Command not recognized. <span>For a list of available commands, type <span id="help-text">'help'</span>.</span>`);
         await displayError();
     }
 }

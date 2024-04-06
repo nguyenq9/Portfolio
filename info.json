@@ -54,6 +54,68 @@
             "url": "mailto:nguyenq9@outlook.com"
         }
     ],
-    "about": "Hi my name is Thai Nguyen! 👋<br>I'm a budding web developer and Computer Science student at Western Washington University.<br>I like to build engaging websites and make cool apps using AI tools like Azure Computer Vision <br>and Vertex AI. In the past, I was a math and computer science tutor at Western, helping students<br>better understand concepts taught in their classes. I'm currently working for Western's <br>Web Communications Technology team to build web pages and web apps that will help the university.<br>When I'm not in class or at work, you can find me playing pickleball, disc golf, or trying new recipes."
-
+    "about": "Hi my name is Thai Nguyen! 👋<br>I'm a budding web developer and Computer Science student at Western Washington University.<br>I like to build engaging websites and make cool apps using AI tools like Azure Computer Vision <br>and Vertex AI. In the past, I was a math and computer science tutor at Western, helping students<br>better understand concepts taught in their classes. I'm currently working for Western's <br>Web Communications Technology team to build web pages and web apps that will help the university.<br>When I'm not in class or at work, you can find me playing pickleball, disc golf, or trying new recipes.",
+    "experience": [
+        {
+            "title": "Web Developer III",
+            "company": "Web Communication Technologies",
+            "location": "Bellingham, WA",
+            "date": {
+                "start": "Apr 2024",
+                "end": "Present "
+            },
+            "description": [
+                "Worked with various Content Management Systems like WordPress and Drupal to convert PDF files to web pages for procedures and policies.",
+                "Utilized SiteImprove to guarantee quality assurance and comply with accessibility guidelines.",
+                "Created a web app that utilizes AI to generates descriptive alternative text for uploaded images."
+            ]
+        },
+        {
+            "title": "Web Development Intern",
+            "company": "Web Communication Technologies",
+            "location": "Bellingham, WA",
+            "date": {
+                "start": "Jan 2024",
+                "end": "Apr 2024"
+            },
+            "description": [
+                "Revise Western Washington University's user-facing content to comply with W3C accessibility standards.",
+                "Evaluate existing technologies employed by the university for reporting and, where feasible, addressing accessibility concerns.",
+                "Develop standalone web application utilizing AI to generate descriptive alternative text."
+            ]
+        },
+        {
+            "title": "Computer Science Tutor",
+            "company": "Western Washington University",
+            "location": "Bellingham, WA",
+            "date": {
+                "start": "Mar 2022",
+                "end": "Jun 2023"
+            },
+            "description": [
+                "Guided students in comprehending programming concepts, with a focus on Racket, Python, & Java",
+                "Provided one-on-one support to students taking introductory programming courses like Computer Systems, Algorithms and Data Structures, and Functional Programming."
+            ]
+        },
+        {
+            "title": "Math Center Tutor",
+            "company": "Western Washington University",
+            "location": "Bellingham, WA",
+            "date": {
+                "start": "Sep 2021",
+                "end": "Mar 2022"
+            },
+            "description": [
+                "Assisted college students with 200 and 300-level math coursework.",
+                "Built strong communication and collaboration skills through group work.",
+                "Led and facilitated study groups of 3 to 4 people to enhance students’ understanding of math concepts."
+            ]
+        }
+    ],
+    "skills": {
+        "languages" : ["Java", "Python", "C", "C++", "JavaScript", "HTML/CSS", "Racket"],
+        "frameworks" : ["React", "Node", "WordPress", "Material-UI", "JavaFX", "Express", "Astro"],
+        "developer" : ["Git", "VS Code", "Bootstrap", "Vercel", "Heroku", "Azure", "AWS"],
+        "interests" : ["Track & Field", "Football", "Pickleball", "Cooking", "Foraging"]
+    }
 }
